@@ -76,13 +76,17 @@ document.getElementById('addfile').addEventListener('change', handleFile)
 removeAllButton.addEventListener('click', removeAllFile)
 
 /* 一些DOM操作 */
-function drawArrayStringDOM (flies) {
+function extractName (name) {
+  return name.match(/^[^\.]+/)[0]
+}
+
+function drawArrayStringDOM (files) {
   const outputArrayString = document.createElement('div')
   outputArrayString.innerHTML = `
   <div class="outputArrayString">
     <pre>
 [
-${files.map(e => '  \'' + e.name + '\'').join(',\n')}
+${files.map(e => '  \'' + extractName(e.name) + '\'').join(',\n')}
 ]
     </pre>
   </div>
