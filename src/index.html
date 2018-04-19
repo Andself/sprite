@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache, no-store, must-revalidate, max-age=0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="./style.css">
+  <title>Sprite</title>
+</head>
+<body>
+  <main class="layout">
+    <div class="layout-left">
+      <section class="console">
+        <form id="config" name="config" class="config">
+          <div class="config-item"><label>列数：</label><input type="number" name="column" placeholder="输入列数" value="5"></div>
+          <div class="config-item"><label>尺寸：</label><input type="number" name="size" placeholder="输入尺寸" value="128"></div>
+        </form>
+        <div class="buttons">
+          <button id="start" class="botton" title="输出合成图片">生&nbsp;&nbsp;成</button>
+        </div>
+      </section>
+      <section class="output">
+          <div id="area"></div>
+      </section>
+    </div>
+    <div class="layout-right">
+      <label for="addfile" class="big-button addfile" title="添加图片素材">添加素材<span id="fileCount"></span></label>
+      <input id="addfile" type="file" hidden value="添加图片" accept=".png,.jpeg" multiple>
+      <ul id="filelist" class="filelist"></ul>
+      <button id="removeAll" class="big-button clear hidden">清空</button>
+    </div>
+  </main>
+
+
+  <!-- script -->
+  <script src="./index.js"></script>
+</body>
+</html>
