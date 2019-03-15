@@ -24,14 +24,26 @@ function handleFile (e) {
 function makeCanvas (config, files) {
   const canvasWarp = document.createElement('div')
   canvasWarp.className = 'outputIMGWarp'
+  const canvasWarpButtons = document.createElement('div')
+  canvasWarpButtons.className = 'outputIMGWarpButtons'
+  const downloadLink = document.createElement('a')
+  downloadLink.innerText = '下载'
+  downloadLink.className = 'download-link'
   const outputArrayString = drawArrayStringDOM(files)
   const canvasDom = document.createElement('canvas')
   canvasDom.className = 'outputIMG'
   canvasDom.width = config.size * config.column
   canvasDom.height = ((files.length / config.column) << 0) === (files.length / config.column) ? (files.length / config.column) * config.size : (((files.length / config.column) + 1) << 0) * config.size
+  canvasWarpButtons.appendChild(downloadLink)
+  canvasWarp.appendChild(canvasWarpButtons)
   canvasWarp.appendChild(canvasDom)
   canvasWarp.appendChild(outputArrayString)
   document.getElementById('area').appendChild(canvasWarp)
+
+  downloadLink.addEventListener('click', function(ev) {
+    downloadLink.href = canvasDom.toDataURL()
+    downloadLink.download = "sprite.png"
+  }, false)
 
   drawIMG(canvasDom, files, config)
 }

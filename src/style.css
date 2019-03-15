@@ -23,6 +23,11 @@ header {
   text-align: center;
 }
 
+a:active, a:focus {
+  text-decoration: none;
+  color: inherit;
+}
+
 ::-webkit-scrollbar {
   background-color: transparent;
   height: 4px;
@@ -113,8 +118,13 @@ header {
   text-align: center;
   box-shadow: 0 0 8px #ccc;
   border-radius: 6px 6px 0 0;
-  padding-top: 54px;
   position: relative;
+}
+.outputIMGWarpButtons {
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 5px #ccc;
 }
 .outputIMG {
   margin: 24px 0;
@@ -150,6 +160,23 @@ header {
 }
 .botton:hover {
   background-color: #72b9f9;
+}
+.download-link {
+  appearance: none;
+  display: block;
+  width: 80px;
+  height: 38px;
+  line-height: 38px;
+  margin: 12px 24px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.download-link:hover {
+  color: #4fa3ef;
+  border-color: #4fa3ef;
 }
 
 /* 添加素材 */
