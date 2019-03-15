@@ -1,6 +1,7 @@
 const DefaultConfig = {
   column: 5,
-  size: 128
+  size: 128,
+  padding: 0
 }
 
 const filesList = []
@@ -36,11 +37,13 @@ function makeCanvas (config, files) {
 }
 
 function drawIMG (canvas, files, config) {
-  const {size, column} = config
+  const {size, column, padding} = config
   const context2D = canvas.getContext('2d')
 
+  const imgRealSize = size - padding * 2
+
   files.forEach((e, i) => {
-    context2D.drawImage(e.file, (i % column) * size, (i - i % column) / column * size, size, size)
+    context2D.drawImage(e.file, ((i % column) * size) + padding, ((i - i % column) / column * size) + padding, imgRealSize, imgRealSize)
   })
 }
 
@@ -67,7 +70,7 @@ function start () {
 
 function updateConfig () {
   Array.from(document.forms.config).forEach(e => {
-    DefaultConfig[e.name] = e.value
+    DefaultConfig[e.name] = e.value - 0
   })
 }
 
